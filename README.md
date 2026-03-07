@@ -19,7 +19,7 @@ Logistic regression is widely used in the banking industry due to its **interpre
 5. Model training
 6. Model comparison
 
-##Tools and Libraries
+## Tools and Libraries
 + Python
 + Pandas
 + Numpy
