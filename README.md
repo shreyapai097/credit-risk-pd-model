@@ -19,6 +19,20 @@ Logistic regression is widely used in the banking industry due to its **interpre
 5. Model training
 6. Model comparison
 
+## Model Evaluation
+The performance of each model was evaluated using classification metrics and confusion matrices.
+
+Metrics used include:
++ Accuracy
++ Precision
++ Recall
++ F1 score
+
+These metrics help assess the model's ability to correctly classify defaulters and non-defaulters.
+
+## Dashboard (Power BI)
+The project includes an interactive Power BI dashboard to visualize model performance and predictions. The dashboard allows comparison between Logistic Regression, Random Forest, and XGBoost models.
+
 ## Tools and Libraries
 + Python
 + Pandas
