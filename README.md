@@ -29,6 +29,6 @@ Logistic regression is widely used in the banking industry due to its **interpre
 + Seaborn
 + Imbalanced-learn
 
-##Purpose
+## Purpose
 This project is a part of my preparation for credit risk/risk analytics roles, focusing on building practical modelling skills used in the financial industry.
 
