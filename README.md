@@ -42,7 +42,7 @@ These metrics assess:
 
 An interactive Power BI dashboard was developed to visualize model performance and portfolio risk.
 
-# Key features include:
+Key features include:
 + Model comparison using ROC curves
 + Portfolio distribution across PD risk bins
 + Calibration analysis (Predicted vs Observed Default Rate)
