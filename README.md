@@ -22,13 +22,13 @@ Logistic regression is widely used in the banking industry due to its **interpre
 ## Model Evaluation
 The models were evaluated using both classification metrics and risk modeling metrics.
 
-# Classification Metrics
+Classification Metrics
 + Accuracy
 + Precision
 + Recall
 + F1 score
 
-# Risk Modeling Metrics
+Risk Modeling Metrics
 + AUC (Area Under the RIC Curve)
 + KS (Kolmogorov-Smirnow Statistic)
 + Calibration (Predicted PD vs Observed Default Rate)
