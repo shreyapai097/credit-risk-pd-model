@@ -13,8 +13,6 @@ An End-to-end credit risk model that predicts the probability of default (PD) fo
 
 ---
 
----
-
 ## Methodology
 
 ### 1. Data Cleaning
@@ -79,19 +77,15 @@ Feature importance rankings were broadly consistent across all three models and 
 | loan_percent_income | 4 | 2 | 1 | 2 |
 | loan_int_rate | 2 | 1 | 2 | 1 |
 | person_income | 3 | 3 | 4 | 3 |
-| person_home_ownership | 5 | 4 | 3 | 4 |
-| cb_person_default_on_file | 7 | 7 | 8 | 5 |
-| loan_intent | 1 | 5 | 5 | 6 |
-| loan_amnt | 6 | 6 | 7 | 7 |
-| person_emp_length | 8 | 8 | 6 | 8 |
+| person_home_ownership | 5 | 4 | 3 | 5 |
+| cb_person_default_on_file | 7 | 7 | 8 | 7 |
+| loan_intent | 1 | 5 | 5 | 4 |
+| loan_amnt | 6 | 6 | 7 | 6 |
+| person_emp_length | 8 | 8 | 6 | 7 |
 
-**Notable finding:** `loan_intent` ranked #1 in Logistic Regression but #5 in 
-tree models. Borrowers taking Medical or Debt Consolidation loans tend to have 
-higher debt burden relative to income — tree models capture this signal through 
-`loan_percent_income` directly, while Logistic Regression weights `loan_intent` 
-more heavily via its WoE encoding.
+**Notable finding:** `loan_intent` ranked #1 in Logistic Regression but #5 in tree models. Borrowers taking Medical or Debt Consolidation loans tend to have a higher debt burden relative to income, and tree models capture this signal through `loan_percent_income` directly, while Logistic Regression weights `loan_intent` more heavily via its WoE encoding.
 
-### 8. ECL Computation — IFRS 9
+### 7. ECL Computation — IFRS 9
 Expected Credit Loss computed at loan level using:
 
 **ECL = PD × LGD × EAD**
@@ -102,27 +96,43 @@ Expected Credit Loss computed at loan level using:
 
 | Metric | Value |
 |---|---|
-| Total Portfolio EAD | $310,827,000 |
-| Total Portfolio ECL | $42,490,243 |
-| ECL as % of Portfolio | 13.67% |
-| Mean PD (XGBoost) | 27.86% |
-| Actual Default Rate | 21.88% |
+| Total Portfolio EAD: | $310,827,000 |
+| Total Portfiolio ECL: | $42,545,435 |
+| ECL as % of portfolio: | 13.69% |
+| Mean PD: | 27.82% |
+| Actual Default Rate: | 21.88% |
 
 **ECL by Loan Intent:**
 
 | Loan Intent | Mean PD | ECL Rate | Risk Level |
 |---|---|---|---|
-| Medical | 35.3% | 17.5% | Highest |
-| Debt Consolidation | 34.7% | 17.3% | High |
-| Home Improvement | 31.1% | 14.8% | Medium |
-| Personal | 27.5% | 13.2% | Medium |
-| Education | 22.5% | 11.0% | Lower |
-| Venture | 18.1% | 9.1% | Lowest |
+| Debt Consolidation | 33.9% | 17.0% | Highest |
+| Medical | 33.6% | 16.8% | High |
+| Home Improvement | 31.8% | 15.1% | Medium |
+| Personal | 28.4% | 13.5% | Medium |
+| Education | 23.0% | 11.3% | Lower |
+| Venture | 18.6% | 9.3% | Lowest |
 
-Medical and Debt Consolidation loans are the highest-risk segments, consistent 
-with borrowers already under financial stress. Venture loans are the safest, 
-likely reflecting stronger income profiles among business borrowers.
+Debt Consolidation and Medical loans are the highest-risk segments, consistent with borrowers already under financial stress. Venture loans are the safest, likely reflecting stronger income profiles among business borrowers.
 
 ---
 
 ## Requirements
+
+pandas
+numpy
+scikit-learn
+xgboost
+imbalanced-learn
+optbinning
+matplotlib
+seaborn
+scipy
+
+---
+
+## Key References
+- Basel III —  IRB approach, LGD assumptions
+- IFRS 9 —  ECL computation framework
+- SR 11-7 — Model Risk Management Guidance
+
